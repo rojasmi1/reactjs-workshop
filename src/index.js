@@ -1,11 +1,12 @@
-import 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from 'App.js';
-import * as serviceWorker from 'serviceWorker';
-import withRoot from 'withRoot';
+import React from "react";
+import ReactDOM from "react-dom";
+import withRoot from "./withRoot.js";
+import App from "App.js";
+import * as serviceWorker from "serviceWorker";
 
-ReactDOM.render(withRoot(App), document.getElementById('root'));
+const AppStyled = withRoot(App);
+
+ReactDOM.render(<AppStyled />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

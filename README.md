@@ -1,5 +1,4 @@
-Starter kit for ReactJS applications using Create React App, JSS and a Theming solution that includes a color palette and basic breakpoints for mobile, tablet and desktop screens.
-
+App used as the main material for a Workshop on how to create a SPA using ReactJS, Redux, Redux Saga and Material UI.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -14,8 +13,6 @@ You can find the most recent version of CRA guide [here](https://github.com/face
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
   - [npm run eject](#npm-run-eject)
-
-
 
 ## Folder Structure
 

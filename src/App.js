@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
-import injectSheet from 'react-jss';
-import Header from 'components/common/Header';
-
-const styles = theme => ({
-	root: {
-		backgroundColor: theme.palette.background,
-		height: '100%'
-	}
-});
+import React, { Component } from "react";
+import Routes from "routes";
+import { BrowserRouter as Router } from "react-router-dom";
 
 class App extends Component {
-	render() {
-		const { classes } = this.props;
-		return (
-			<div className={classes.root}>
-				<Header />
-			</div>
-		);
-	}
+  render() {
+    return (
+      <Router>
+        <Routes />
+      </Router>
+    );
+  }
 }
 
-export default injectSheet(styles)(App);
+export default App;

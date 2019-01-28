@@ -1,48 +1,47 @@
-import { ThemeProvider } from "react-jss";
 import React from "react";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
-const theme = {
+// A theme with custom primary and secondary color.
+// It's optional.
+const theme = createMuiTheme({
   palette: {
-    primary: "#0d4e86",
-    scondary: "#b9ad17",
-    background: "#e2e2e2",
-    white: "#ffffff",
-    black: "#000000"
-  },
-  spacing: {
-    unit: 8
-  },
-  breakpoints: {
-    xs: "@media (min-width: 0px)",
-    sm: "@media (min-width: 600px)",
-    md: "@media (min-width: 960px)"
+    primary: {
+      light: "#2c387e",
+      main: "#3f51b5",
+      dark: "#6573c3"
+    },
+    secondary: {
+      light: "#007bb2",
+      main: "#00b0ff",
+      dark: "#33bfff"
+    },
+    common: {
+      backGround: "#ddd",
+      titleColorPrimary: "#333",
+      titleColorSecondary: "#eee",
+      white: "#fff"
+    }
   },
   typography: {
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif",
-    fontSizes: {
-      title: {
-        xs: 18,
-        sm: 22,
-        md: 26
-      },
-      body: {
-        xs: 11,
-        sm: 12,
-        md: 14
-      }
-    }
+    useNextVariants: true
   }
-};
+});
 
-/**
- * Helper function that receives a Component to Wrap it with a Theme Provider
- * making the custome theme object accessible to any child component via the Context API.
- */
-const withRoot = Component => (
-  <ThemeProvider theme={theme}>
-    <Component />
-  </ThemeProvider>
-);
+function withRoot(Component) {
+  function WithRoot(props) {
+    // MuiThemeProvider makes the theme available down the React tree
+    // thanks to React context.
+    return (
+      <MuiThemeProvider theme={theme}>
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Component {...props} />
+      </MuiThemeProvider>
+    );
+  }
+
+  return WithRoot;
+}
 
 export default withRoot;
