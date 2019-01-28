@@ -7,7 +7,7 @@ import PublicLayout from "components/layout/PublicLayout";
 const Routes = props => {
   return (
     <Switch>
-      <PublicLayout title="Characters Info" path="/" exact component={Home} />
+      <PublicLayout title="Home" path="/" exact component={Home} />
       <PublicLayout title="About" path="/about/" component={About} />
     </Switch>
   );
