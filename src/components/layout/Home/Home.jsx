@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
+import CharactersTableContainer from "containers/characters/CharactersTableContainer";
 
 const styles = theme => ({
   root: {}
@@ -8,7 +9,11 @@ const styles = theme => ({
 class Home extends Component {
   render() {
     const { classes } = this.props;
-    return <div className={classes.root}>This is the home page!</div>;
+    return (
+      <div className={classes.root}>
+        <CharactersTableContainer />{" "}
+      </div>
+    );
   }
 }
 
