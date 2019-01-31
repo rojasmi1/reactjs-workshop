@@ -1,17 +1,21 @@
 // ------------------------------------
 // Constants
-const LOAD_CHARACTERS = "LOAD_CHARACTERS";
+const LOAD_CHARACTERS_REQUEST = "LOAD_CHARACTERS_REQUEST";
+const LOAD_CHARACTERS_SUCCESS = "LOAD_CHARACTERS_SUCCESS";
+const LOAD_CHARACTERS_FAIL = "LOAD_CHARACTERS_FAIL";
+
+export {
+  LOAD_CHARACTERS_REQUEST,
+  LOAD_CHARACTERS_SUCCESS,
+  LOAD_CHARACTERS_FAIL
+};
 
 // ------------------------------------
 // Actions
 // ------------------------------------
 
 const loadCharacters = () => ({
-  type: LOAD_CHARACTERS,
-  payload: [
-    { id: 1, name: "Rick", status: Math.random() * 10 },
-    { id: 2, name: "Morty", status: Math.random() * 10 }
-  ]
+  type: LOAD_CHARACTERS_REQUEST
 });
 
 export const actions = {
@@ -22,9 +26,15 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [LOAD_CHARACTERS]: (state, action) => ({
+  [LOAD_CHARACTERS_REQUEST]: (state, action) => ({
     ...state,
-    charactersList: action.payload
+    charactersList: [],
+    isLoadingCharacters: true
+  }),
+  [LOAD_CHARACTERS_SUCCESS]: (state, action) => ({
+    ...state,
+    charactersList: action.payload,
+    isLoadingCharacters: false
   })
 };
 
