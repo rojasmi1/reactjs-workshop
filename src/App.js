@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 
 const initialState = {
   characters: {
-    charactersList: [{ id: 1, name: "Rick" }, { id: 2, name: "Morty" }],
+    charactersList: [],
     isLoadingCharacters: false
   }
 };

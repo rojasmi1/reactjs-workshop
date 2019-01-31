@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Table from "@material-ui/core/Table";
@@ -6,6 +6,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   table: {
@@ -21,6 +22,8 @@ const CharactersTable = props => {
         Here you'll find a list of all characters in the serie and detailed
         information of the character selected from the table.
       </Typography>
+      <b />
+      <Button onClick={() => props.loadCharacters()}>Load data!</Button>
       {rows.length ? (
         <Table className={classes.table}>
           <TableHead>
