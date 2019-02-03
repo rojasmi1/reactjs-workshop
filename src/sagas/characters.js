@@ -1,16 +1,23 @@
 import { takeLatest, all, put } from "redux-saga/effects";
 import {
   LOAD_CHARACTERS_REQUEST,
-  LOAD_CHARACTERS_SUCCESS
+  LOAD_CHARACTERS_SUCCESS,
+  LOAD_CHARACTERS_FAIL,
 } from "store/charactersReducer";
 
 /** WORKERS */
 
 function* loadCharacters(action) {
-  const response = yield fetch("https://rickandmortyapi.com/api/character/");
-  const data = yield response.json();
-  const characters = data.results;
-  yield put({ type: LOAD_CHARACTERS_SUCCESS, payload: characters });
+  const { payload = '' } = action;
+
+  try {
+    const response = yield fetch(`https://rickandmortyapi.com/api/character/?name=${payload}`);
+    const data = yield response.json();
+    const characters = data.results;
+    yield put({ type: LOAD_CHARACTERS_SUCCESS, payload: characters });
+  } catch (error) {
+    yield put({ type: LOAD_CHARACTERS_FAIL, payload: error.message });
+  }
 }
 
 /** WATCHERS */

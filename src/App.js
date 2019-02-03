@@ -7,7 +7,10 @@ import { Provider } from "react-redux";
 const initialState = {
   characters: {
     charactersList: [],
-    isLoadingCharacters: false
+    isLoadingCharacters: false,
+    selectedRow: {},
+    hasErrors: false,
+    errorMessage: null
   }
 };
 

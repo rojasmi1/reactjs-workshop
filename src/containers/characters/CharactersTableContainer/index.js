@@ -1,3 +1,3 @@
-import CharactersTableContainer from "./CharactersTableContainer";
+import CharactersSearchContainer from "./CharactersSearchContainer";
 
-export default CharactersTableContainer;
+export default CharactersSearchContainer;

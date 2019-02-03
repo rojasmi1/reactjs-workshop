@@ -3,11 +3,13 @@ import CharactersTable from "components/characters/CharactersTable";
 import { actions } from "store/charactersReducer";
 
 const mapStateToProps = state => ({
-  rows: state.characters.charactersList
+  characters: state.characters.charactersList,
+  selectedRow: state.characters.selectedRow,
+  isLoadingCharacters: state.characters.isLoadingCharacters
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadCharacters: () => dispatch(actions.loadCharacters())
+  selectCharacter: (character) => dispatch(actions.selectCharacter(character)),
 });
 
 export default connect(
